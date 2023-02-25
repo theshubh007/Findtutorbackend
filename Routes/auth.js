@@ -36,7 +36,7 @@ router.post("/usersignup", async (req, res) => {
 router.post("/userlogin", async (req, res) => {
   try {
     const { email, password } = req.body
-    var user = await User.findOne({ email: email })
+    var user = await User.findOne({ email: email }).select("+password")
     if (!user) {
       return res.status(400).json({
         success: false,
