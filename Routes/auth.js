@@ -9,6 +9,13 @@ router.use(express.urlencoded({ extended: true }))
 router.post("/usersignup", async (req, res) => {
   try {
     const { name, email, password, phone } = req.body
+    var checkuser = await User.findOne({ email: email })
+    if (checkuser) {
+      return res.status(400).json({
+        success: false,
+        message: "User already exists",
+      })
+    }
     const salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(password, salt)
     const user = await User.create({
