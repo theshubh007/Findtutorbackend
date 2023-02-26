@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 const mongoURI =
-  "mongodb+srv://20se02ce028:UlR5Q0X4zcP5gQrq@cluster1.hgkllla.mongodb.net/?retryWrites=true&w=majority"
+  "mongodb+srv://@cluster1.hgkllla.mongodb.net/?retryWrites=true&w=majority"
 
 mongoose.set("strictQuery", false)
 
